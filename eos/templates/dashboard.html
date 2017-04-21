@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title%}Dashboard{% endblock %}
+{% load staticfiles %}
+{% block content%}
+<div class="container body">
+      <div class="main_container">
+		  <div class="right_col" role="main">
+		<h1>Live phones</h1>
+		<div id="phonediv">
+    	<ul id="phone_list">
+    		{% if live_phones %}
+        		{% for phone in live_phones %}
+            		<li id = {{phone.phone.imsi}}><a href="phone/{{phone.phone.imsi}}">{{phone}}</a></li>
+        		{% endfor %}
+        	{% endif %}
+    	</ul>
+    	{% if not live_phones %}
+        	<p id="no_phones">No phones connected</p>
+    	{% endif %}
+	    </div>
+	
+		  
+		  <!-- Logs -->
+		<h1>Last logs</h1>
+		<div class="x">
+			<select id="myButton" name="logNumber">
+				<option value="10" onclick="testing();">10</option>
+				<option value="25" onclick="testing();">25</option>
+				<option value="50" onclick="testing();">50</option>
+			</select>
+		</div>
+			  
+	<div id="logdiv">
+    {% for log in logs %}
+		<span class="log-item"><a href="phone/{{log.imsi}}">{{log.imsi}}</a> -> {{log.field}}:{{log.value}} @ {{log.timestamp|date:'M d, o, H:i:s'}}<br></span>
+    {% endfor %}
+    </div>
+	</div>
+	</div>
+</div>
+
+<!-- Custom scripts -->
+<script src="{% static 'dashboard.js' %}"></script>
+<script src="{% static 'dateformat.js' %}"></script>
+
+{% endblock %}

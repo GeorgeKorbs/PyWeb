@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %} Phone detail {% endblock %}
+{% block content %}
+<div class="container body">
+      <div class="main_container">        
+		<!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+				  <h1>Phone chart <small>for <b>{{phone.imsi}}</b></small></h1>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row">
+              	
+				<!-- start of the row -->
+			<div class="col-md-8 col-sm-8 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Line graph<small>Sessions</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <canvas id="phoneLineChart"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+			  <!-- end of the row -->
+          </div>
+			
+			<!-- details -->
+			<div id="phone_details">
+				<div><h1> Details </h1></div>
+				<script src="{% static 'singlePhone.js' %}"></script>
+				{% if not phone %}
+				<p>no phone</p>
+				{% endif %}
+    			{% for field,value in phone.get_fields %}
+    				<span>{{field}}:</span>
+    				<span id = {{field}}> {{value}}</span><br>
+    			{% endfor %}
+			</div>
+		
+		  <!-- commands -->
+			<h1>Command Prompt</h1>
+			<div>
+				<i class="fa fa-terminal" "fa-2x"></i>:
+			<input type="text" id="command">
+			<button type="button" id="commandBtn">Send</button>
+			<span id="result">Command result:</span>
+			</div>
+		  </div>
+		  
+        <!-- page content -->
+	</div>
+</div>
+
+{% endblock %}
