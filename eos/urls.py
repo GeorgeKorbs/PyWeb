@@ -5,5 +5,6 @@ urlpatterns = [
     url(r'^$', Dashboard.as_view(), name = 'dashboard'),
     url(r'^phone/(?P<imsi>[-\w]+)$', PhoneDetail.as_view(), name = 'phone_detail'),
     url(r'^phones$',PhoneList.as_view(), name = 'phone_list'),
-    url(r'^apiguide$',APIGuide.as_view(),name = 'apiguide')
+    url(r'^apiguide$',APIGuide.as_view(),name = 'apiguide'),
+	#url(r'^maps$',Maps.as_view(), name='maps')
 ]

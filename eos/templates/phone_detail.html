@@ -3,46 +3,54 @@
 {% block title %} Phone detail {% endblock %}
 {% block content %}
 <div class="container body">
-      <div class="main_container">        
-		<!-- page content -->
-        <div class="right_col" role="main">
-          <div class="">
-            <div class="page-title">
-              <div class="title_left">
-				  <h1>Phone chart <small>for <b>{{phone.imsi}}</b></small></h1>
-              </div>
-            </div>
-            <div class="clearfix"></div>
-            <div class="row">
-              	
+	<div class="main_container">
+		
+		<!-- page content // right column -->
+		<div class="right_col" role="main">
+			<div class="">
+				<div class="page-title">
+					<div class="title_left">
+						<h1>Phone chart <small>for <b>{{phone.imsi}}</b></small></h1>
+					</div>
+            	</div>
+            	<div class="clearfix"></div>
+            	
 				<!-- start of the row -->
-			<div class="col-md-8 col-sm-8 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Line graph<small>Sessions</small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                    <canvas id="phoneLineChart"></canvas>
-                  </div>
-                </div>
-              </div>
-            </div>
-			  <!-- end of the row -->
-          </div>
+				<div class="row">
+					<div class="col-md-8 col-sm-8 col-xs-12">
+						<!-- start of the panel -->
+                		<div class="x_panel">
+							<div class="x_title">
+                    			<h2>Line graph<small>Sessions</small></h2>
+                    			<ul class="nav navbar-right panel_toolbox">
+                      			<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+                      			<li class="dropdown">
+                        		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        		<ul class="dropdown-menu" role="menu">
+                          		<li><a href="#">Settings 1</a></li>
+                          		<li><a href="#">Settings 2</a></li>
+                        		</ul></li></ul>
+                    			<div class="clearfix"></div>
+                  			</div>
+                  			<div class="x_content">
+                    		<canvas id="phoneLineChart"></canvas>
+                  			</div>
+						</div>
+						<!-- end of the panel -->
+					</div>
+					<div class="col-md-4 col-sm-4">
+						<!-- checkboxes -->
+						<div class="checkbox">
+							<label><input type="checkbox" value="tmsi">TMSI</label><br>
+							<label><input type="checkbox" value="kc">Kc</label><br>
+							<label><input type="checkbox" value="kc_gprs">Kc GPRS</label><br>
+							<label><input type="checkbox" value="ptmsi">PTMSI</label><br>
+							<label><input type="checkbox" value="ptmsi_sign">PTMSI sign</label><br>
+						</div>
+					</div>
+				</div>
+				<!-- end of the row -->
+			</div> <!-- end of class="" -->
 			
 			<!-- details -->
 			<div id="phone_details">
@@ -58,17 +66,15 @@
 			</div>
 		
 		  <!-- commands -->
-			<h1>Command Prompt</h1>
 			<div>
-			<i class="fa fa-terminal" "fa-2x"></i>:
-			<input type="text" id="command">
-			<button type="button" id="commandBtn">Send</button>
-			<span id="result">Command result:</span>
+				<h1>Command Prompt</h1>
+				<i class="fa fa-terminal" "fa-2x"></i>:
+				<input type="text" id="command">
+				<button type="button" id="commandBtn">Send</button>
+				<span id="result">Command result:</span>
 			</div>
-		  </div>
-		  
-        <!-- page content -->
+		</div>  
+        <!-- page content // right-column -->
 	</div>
 </div>
-
 {% endblock %}

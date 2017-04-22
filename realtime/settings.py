@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'eos',
     'api',
     'rest_framework',
-    'debug_toolbar'
+    'debug_toolbar',
 ]
 
 #CHANNEL_LAYERS = {
