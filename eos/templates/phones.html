@@ -22,6 +22,16 @@
             	{% endfor %}
         		{% else %}
         		{% endif %}
+					
+							<!-- details -->
+			<div id="phone_details">
+				<div><h1> Details </h1></div>
+				<script src="{% static 'singlePhone.js' %}"></script>
+    			{% for field,value in phone.signal_q %}
+    				<span>{{field}}:</span>
+    				<span id = {{field}}> {{value}}</span><br>
+    			{% endfor %}
+			</div>
 				</ul>
 			  </div>
 			</div>
